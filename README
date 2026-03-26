@@ -1,0 +1,22 @@
+# LED Button Project
+
+This is my first embedded systems project, exploring **button input and LED control** on an **Arduino Mega 2560**.  
+The project demonstrates a progression from basic polling to interrupt-driven input.
+
+## Project Overview
+
+The project is designed to teach foundational embedded systems concepts:
+
+- Reading digital input from a button
+- Controlling an LED
+- Implementing polling and debounce techniques
+- Using interrupts for responsive input handling
+
+Each stage is **self-contained** in its own folder, making it easy to build and upload independently using PlatformIO.
+
+## Project Stages
+
+1. **01_basic_polling** – LED turns on while the button is pressed and off when released.
+2. **02_toggle_polling** – LED toggles on/off with each button press.
+3. **03_debounce_polling** – Adds software debounce to improve reliability.
+4. **04_interrupt** – Uses interrupts for immediate LED response.
