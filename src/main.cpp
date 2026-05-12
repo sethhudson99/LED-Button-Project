@@ -5,7 +5,8 @@
 // put function declarations here
 const int buttonPin = 2;
 const int ledPin = 12;
-boolean ledOn = false;
+bool ledOn = false;
+bool lastButtonState = HIGH;
 
 void setup()
 {
@@ -17,18 +18,19 @@ void setup()
 void loop()
 {
   // put your main code here, to run repeatedly
-  if (ledOn == false && digitalRead(buttonPin) == LOW)
-  {
-    ledOn = true;
-  } else if( ledOn == true && digitalRead(buttonPin) == LOW){
-    ledOn = false;
+  bool currentButtonState = digitalRead(buttonPin);
+  if (lastButtonState == HIGH && currentButtonState == LOW){
+      ledOn = !ledOn;
+  }
+      lastButtonState = currentButtonState;
+    
+  if (ledOn == true){
+    digitalWrite(ledPin,HIGH);
+  } else {
+    digitalWrite(ledPin,LOW);
   }
 
-  if (ledOn == true){
-    digitalWrite(ledPin, HIGH);
-  } else {
-    digitalWrite(ledPin, LOW);
-  }
+ 
 
 
 }
