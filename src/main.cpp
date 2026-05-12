@@ -1,10 +1,11 @@
-// **01_basic_polling**
+// **02_toggle_polling**
 
 #include <Arduino.h>
 
 // put function declarations here
 const int buttonPin = 2;
 const int ledPin = 12;
+boolean ledOn = false;
 
 void setup()
 {
@@ -16,12 +17,18 @@ void setup()
 void loop()
 {
   // put your main code here, to run repeatedly
-  if (digitalRead(buttonPin) == LOW)
+  if (ledOn == false && digitalRead(buttonPin) == LOW)
   {
-    digitalWrite(ledPin, HIGH);
+    ledOn = true;
+  } else if( ledOn == true && digitalRead(buttonPin) == LOW){
+    ledOn = false;
   }
-  else
-  {
+
+  if (ledOn == true){
+    digitalWrite(ledPin, HIGH);
+  } else {
     digitalWrite(ledPin, LOW);
   }
+
+
 }
